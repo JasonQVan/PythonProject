@@ -1,5 +1,5 @@
 class Machine:
-    prompts = {
+    prompts = {  #prompts allows you to just call the string instead of typing it out, cleans it up
         'start': 'Write action (buy, fill, take, remaining, exit): ',
         'buy': 'What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino, back - to main menu: ',
         'water fill': 'Write how many ml of water do you want to add: ',
@@ -8,7 +8,7 @@ class Machine:
         'cups fill': 'Write how many disposable cups of coffee do you want to add: ',
     }
 
-    def __init__(self, water=400, milk=540, coffeebeans=120, disposable_cups=9, money=550):
+    def __init__(self, water=400, milk=540, coffeebeans=120, disposable_cups=9, money=550): #sets initial quantity of resources in machine
         self.water = water
         self.milk = milk
         self.coffeebeans = coffeebeans
@@ -63,6 +63,7 @@ class Machine:
         print(f"I gave you {self.money}")
         self.money = 0
         self.startup()
+    
     def userremaining(self):
         print("The coffee machine has: ")
         print(f"{self.water} of water")
@@ -72,7 +73,7 @@ class Machine:
         print(f"{self.money} of money")
         self.startup()
 
-    def userfill(self):
+    def userfill(self): # takes user input for each resource and adds it to the variable
         self.water += int(input(self.prompts['water fill']))
         self.milk += int(input(self.prompts['milk fill']))
         self.coffeebeans += int(input(self.prompts['coffee fill']))
